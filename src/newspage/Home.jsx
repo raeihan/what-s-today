@@ -11,9 +11,15 @@ const Home = () => {
   // get API
   const getData = async (id = 'id') => {
     const response = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=${id}&apiKey=e869843a59fb42ab9b2e6656aa594c8b`
-    );
-
+      `https://newsapi.org/v2/top-headlines?country=${id}&apiKey=e869843a59fb42ab9b2e6656aa594c8b`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          // Tambahkan headers lain jika diperlukan
+        },
+      }
+    );    
     setNews(response.data.articles);
   };
 
